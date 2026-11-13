@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selected student projects with descriptions and links">
+  <title>Projects | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">MyPortfolio</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <h1>My Projects</h1>
+        <p>A selection of things I have built and learned from</p>
+      </div>
+    </section>
+ 
+    <section class="section">
+      <div class="container grid-3">
+        <article class="card project-card">
+          <img src="images/project1.svg" alt="Screenshot of the personal portfolio website project">
+          <h2>Personal Portfolio Website</h2>
+          <p>A responsive multi-page website showcasing my profile, skills and projects, built with semantic HTML, CSS Flexbox/Grid and JavaScript.</p>
+          <p class="tech">HTML &bull; CSS &bull; JavaScript</p>
+          <a href="https://github.com/your-username/portfolio" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+ 
+        <article class="card project-card">
+          <img src="images/project2.svg" alt="Screenshot of the to-do list application">
+          <h2>Task Manager App</h2>
+          <p>An interactive to-do application where users can add, complete and delete tasks. Data is saved in the browser so tasks remain after refresh.</p>
+          <p class="tech">JavaScript &bull; DOM &bull; LocalStorage</p>
+          <a href="planner.html" class="btn btn-primary">Try Live Demo</a>
+        </article>
+ 
+        <article class="card project-card">
+          <img src="images/project3.svg" alt="Screenshot of the student results calculator">
+          <h2>GPA Calculator</h2>
+          <p>A simple calculator that helps students compute their Grade Point Average from course units and grades with instant results.</p>
+          <p class="tech">HTML &bull; CSS &bull; JavaScript</p>
+          <a href="https://github.com/your-username/gpa-calculator" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+ 
+    <section class="section alt">
+      <div class="container">
+        <h2 class="center">Project Summary</h2>
+        <table>
+          <caption>Overview of projects and status</caption>
+          <thead>
+            <tr><th>Project</th><th>Technologies</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Personal Portfolio Website</td><td>HTML, CSS, JS</td><td>Completed</td></tr>
+            <tr><td>Task Manager App</td><td>JavaScript</td><td>Completed</td></tr>
+            <tr><td>GPA Calculator</td><td>HTML, CSS, JS</td><td>In progress</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+ 
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year">2025</span> Your Full Name. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
