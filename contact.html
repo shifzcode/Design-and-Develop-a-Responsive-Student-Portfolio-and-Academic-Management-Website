@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,15 +169,13 @@
       border: none;
     }
 
-    .demo-note {
-      background: #F3EDFF;
-      border-left: 4px solid #8B5CF6;
+    #form-error {
+      display: none;
+      background: #FEF2F2;
+      color: #DC2626;
+      padding: 14px;
       border-radius: 10px;
-      padding: 15px;
-      line-height: 1.6;
-      color: var(--text);
-      margin-top: 22px;
-      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     #form-message {
@@ -293,56 +292,55 @@
         <h2>Send Me a Message</h2>
 
         <p>
-          Fill in the form below to see how the contact form works.
+          Fill in the form below to get in touch.
         </p>
 
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" novalidate>
 
           <div>
-            <label for="name">Full Name</label>
+            <label for="name">Name</label>
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Enter your full name"
-              required>
+              placeholder="Enter your full name">
           </div>
 
           <div>
             <label for="email">Email Address</label>
             <input
-              type="email"
+              type="text"
               id="email"
               name="email"
-              placeholder="Enter your email"
-              required>
+              placeholder="Enter your email address">
           </div>
 
           <div>
-            <label for="subject">Subject</label>
+            <label for="phone">Phone Number</label>
             <input
               type="text"
-              id="subject"
-              name="subject"
-              placeholder="What is your message about?"
-              required>
+              id="phone"
+              name="phone"
+              placeholder="Enter digits only"
+              inputmode="numeric">
           </div>
 
           <div>
-            <label for="message">Your Message</label>
+            <label for="message">Message</label>
             <textarea
               id="message"
               name="message"
-              placeholder="Write your message here..."
-              required></textarea>
+              placeholder="Write your message here..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">
             Send Message ✨
           </button>
 
+          <p id="form-error" role="alert"></p>
+
           <p id="form-message" role="status">
-            Thank you! Your demo message has been received successfully.
+            Thank you! Your form has been validated successfully.
           </p>
 
         </form>
@@ -351,24 +349,51 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>
-      © 2026 Fatima Shifa'u Abdulkadir.
-      Designed with 💜 and creativity.
-    </p>
-  </footer>
-
-  <!-- FORM DEMO SCRIPT -->
+  <!-- JAVASCRIPT FORM VALIDATION -->
   <script>
     const contactForm = document.getElementById("contactForm");
     const formMessage = document.getElementById("form-message");
+    const formError = document.getElementById("form-error");
 
     contactForm.addEventListener("submit", function(event) {
+
       event.preventDefault();
 
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phonePattern = /^\d+$/;
+
+      formError.style.display = "none";
+      formMessage.style.display = "none";
+
+      formError.textContent = "";
+
+      if (!name || !email || !phone || !message) {
+        formError.textContent = "Please fill in all fields.";
+        formError.style.display = "block";
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        formError.textContent = "Please enter a valid email address.";
+        formError.style.display = "block";
+        return;
+      }
+
+      if (!phonePattern.test(phone)) {
+        formError.textContent = "Phone number must contain digits only.";
+        formError.style.display = "block";
+        return;
+      }
+
       formMessage.style.display = "block";
+
       contactForm.reset();
+
     });
   </script>
 
