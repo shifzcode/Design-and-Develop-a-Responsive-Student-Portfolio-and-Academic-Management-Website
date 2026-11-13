@@ -1,17 +1,86 @@
-student-portfolio/
-  index.html
-  about.html
-  projects.html
-  planner.html
-  contact.html
-  css/
-    style.css
-  js/
-    script.js
-  images/
-    profile.jpg        (my photograph; or keep profile.svg)
-    project1.png       (screenshots of my projects)
-    project2.png
-    project3.png
-  media/
-    welcome.wav        (short audio intro; replace with your own)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal academic portfolio and student management website">
+  <title>Home | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">MyPortfolio</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Welcome to my portfolio</p>
+          <h1>Hello, I'm <span class="highlight">Your Full Name</span></h1>
+          <p class="lead">Welcome! I am a university student passionate about technology and building useful things for the web. Explore my profile, skills, projects, and try out my academic planner.</p>
+          <div class="btn-group">
+            <a href="projects.html" class="btn btn-primary">View My Projects</a>
+            <a href="contact.html" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <img src="images/profile.svg" alt="Photograph of the student">
+          <figcaption>Your Full Name &ndash; Computer Science Student</figcaption>
+        </figure>
+      </div>
+    </section>
+ 
+    <section class="section">
+      <div class="container two-col">
+        <article class="card">
+          <h2>Brief Biography</h2>
+          <p>I am a student at MIVA Open University studying Computer Science. I enjoy solving problems, learning new technologies, and working with others on projects. My goal is to become a skilled software developer who creates solutions that make a difference in Africa and beyond.</p>
+          <p>Outside the classroom I love reading, playing football, and exploring new tools for web development.</p>
+        </article>
+        <aside class="card">
+          <h2>Quick Facts</h2>
+          <ul class="check-list">
+            <li>Level: 100 Level, Computer Science</li>
+            <li>Location: Nigeria</li>
+            <li>Focus: Web Development</li>
+            <li>Currently learning: HTML, CSS and JavaScript</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+ 
+    <section class="section alt">
+      <div class="container">
+        <h2 class="center">Meet Me</h2>
+        <div class="media-box">
+          <p>Press play to hear a short welcome message:</p>
+          <audio controls>
+            <source src="media/welcome.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </section>
+  </main>
+ 
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year">2025</span> Your Full Name. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
