@@ -1,230 +1,212 @@
-/* Modern Contact Page Styling */
 
-.contact-grid {
-  gap: 30px;
-}
-
-.contact-card {
-  background: linear-gradient(145deg, #FFFFFF, #F8F4FF);
-  border: 1px solid #E5D8FF;
-  border-radius: 22px;
-  padding: 32px;
-  box-shadow: 0 8px 25px rgba(76, 29, 149, 0.09);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(76, 29, 149, 0.15);
-}
-
-.contact-card h2 {
-  color: var(--primary);
-  margin-bottom: 14px;
-}
-
-.contact-icon {
-  background: #EEE7FF;
-  color: #6D28D9;
-  border-radius: 15px;
-  width: 54px;
-  height: 54px;
-}
-
-.contact-item {
-  padding: 18px 0;
-}
-
-.contact-item h3 {
-  font-weight: 700;
-}
-
-.contact-item a {
-  color: #766B86;
-  transition: color 0.2s;
-}
-
-.contact-item a:hover {
-  color: #6D28D9;
-}
-
-.social-links a {
-  background: #F1EAFE;
-  border: 1px solid #E5D8FF;
-  border-radius: 12px;
-  padding: 12px 17px;
-  transition: all 0.25s ease;
-}
-
-.social-links a:hover {
-  background: #6D28D9;
-  color: white;
-  transform: translateY(-3px);
-}
-
-.contact-form {
-  gap: 18px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  background: #FFFFFF;
-  border: 1px solid #E5D8FF;
-  border-radius: 12px;
-  padding: 15px;
-  transition: border 0.2s, box-shadow 0.2s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #8B5CF6;
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
-}
-
-.contact-form button {
-  padding: 15px;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-.demo-note {
-  background: #F3EDFF;
-  border-left: 4px solid #8B5CF6;
-  border-radius: 10px;
-  padding: 15px;
-  line-height: 1.6;
-}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me | Fatima Shifa'u Abdulkadir</title>
+
+  <title>Contact | Fatima Shifa'u Abdulkadir</title>
+
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .contact-grid {
+    /* CONTACT PAGE DESIGN */
+
+    .contact-section {
+      padding: 70px 0;
+    }
+
+    .contact-intro {
+      max-width: 680px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .contact-intro h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .contact-intro p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-layout {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 25px;
-      align-items: start;
+      grid-template-columns: 0.9fr 1.3fr;
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .contact-card {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 20px;
-      border: 1px solid #E5D8FF;
-      box-shadow: var(--shadow);
+    .contact-panel {
+      background: linear-gradient(145deg, #FFFFFF, #F7F1FF);
+      padding: 32px;
+      border: 1px solid #E8DCFF;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(76, 29, 149, 0.09);
     }
 
-    .contact-item {
+    .contact-panel h2 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .contact-panel > p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-detail {
       display: flex;
       align-items: center;
       gap: 15px;
-      padding: 16px 0;
-      border-bottom: 1px solid #EEE7F8;
+      padding: 18px 0;
+      border-bottom: 1px solid #EDE5F8;
     }
 
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #F1EAFE;
-      border-radius: 14px;
-      font-size: 23px;
-      flex-shrink: 0;
+    .contact-detail-icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      display: grid;
+      place-items: center;
+      background: #EEE6FF;
+      border-radius: 15px;
+      font-size: 24px;
     }
 
-    .contact-item h3 {
-      font-size: 15px;
-      margin-bottom: 4px;
+    .contact-detail h3 {
       color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 5px;
     }
 
-    .contact-item a {
+    .contact-detail p,
+    .contact-detail a {
       color: var(--muted);
+      font-size: 14px;
       text-decoration: none;
       overflow-wrap: anywhere;
     }
 
-    .contact-item a:hover {
+    .contact-detail a:hover {
       color: var(--primary);
     }
 
-    .contact-form {
-      display: grid;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #D8C8F5;
-      border-radius: 11px;
-      font: inherit;
-      background: #FFFDFF;
-      color: var(--text);
-    }
-
-    .contact-form textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
-    }
-
-    .contact-form button {
-      cursor: pointer;
-      border: none;
-      font: inherit;
+    .social-heading {
+      margin-top: 25px;
+      color: var(--primary);
     }
 
     .social-links {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .social-links a {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 10px 15px;
-      border-radius: 10px;
-      background: #F1EAFE;
-      color: var(--primary);
+      padding: 11px 15px;
+      background: #EEE6FF;
+      color: #6D28D9;
+      border-radius: 11px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 14px;
+      transition: 0.25s ease;
     }
 
     .social-links a:hover {
-      background: var(--primary);
+      background: #6D28D9;
       color: white;
+      transform: translateY(-3px);
     }
 
-    .demo-note {
-      background: #F5F0FF;
-      border-left: 4px solid var(--primary);
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .contact-form label {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #DFD1F5;
+      border-radius: 12px;
+      background: #FFFFFF;
+      color: var(--text);
+      font: inherit;
+      box-sizing: border-box;
+      transition: 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #8B5CF6;
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .contact-notice {
+      margin-top: 15px;
       padding: 13px;
-      border-radius: 8px;
+      border-radius: 10px;
+      background: #F1EAFE;
+      color: #5B21B6;
       font-size: 13px;
-      margin-top: 16px;
+      line-height: 1.6;
     }
 
-    @media (max-width: 750px) {
-      .contact-grid {
+    .contact-success {
+      display: none;
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #F0FDF4;
+      color: #166534;
+    }
+
+    @media (max-width: 800px) {
+      .contact-layout {
         grid-template-columns: 1fr;
+      }
+
+      .contact-panel {
+        padding: 24px;
+      }
+
+      .contact-intro h2 {
+        font-size: 1.7rem;
       }
     }
   </style>
@@ -232,8 +214,11 @@
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header class="site-header">
   <div class="container header-inner">
+
     <a href="index.html" class="logo">Shifz Portfolio</a>
 
     <nav>
@@ -245,50 +230,67 @@
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
 
 <main>
 
+  <!-- PAGE BANNER -->
+
   <section class="page-banner">
     <div class="container">
-      <p class="eyebrow">Let's connect</p>
+      <p class="eyebrow">Let's connect and collaborate</p>
       <h1>Get In Touch 💜</h1>
       <p>
-        Have a question, an opportunity or an interesting project?
-        I'd love to hear from you.
+        Every great connection begins with a conversation.
+        I'd love to hear from you!
       </p>
     </div>
   </section>
 
-  <section class="section">
+  <!-- CONTACT CONTENT -->
+
+  <section class="contact-section">
+
     <div class="container">
 
-      <div class="contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">CONTACT ME</p>
+        <h2>Let's Start a Conversation</h2>
+        <p>
+          Whether you have a question, an opportunity,
+          an idea or simply want to connect, feel free to
+          reach out. I'm always happy to explore new possibilities.
+        </p>
+      </div>
 
-        <!-- Contact Information -->
-        <div class="contact-card">
+      <div class="contact-layout">
 
-          <p class="eyebrow">Contact information</p>
-          <h2>Let's Connect</h2>
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-panel">
+
+          <p class="eyebrow">GET IN TOUCH</p>
+          <h2>Contact Information</h2>
 
           <p>
-            I'm always interested in learning, connecting with people
-            and exploring opportunities in technology.
+            You can reach me through the following channels.
+            Let's connect!
           </p>
 
-          <div class="contact-item">
-            <div class="contact-icon">✉️</div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
             <div>
-              <h3>Email</h3>
+              <h3>Email Address</h3>
               <a href="mailto:hello@example.com">
                 hello@example.com
               </a>
             </div>
           </div>
 
-          <div class="contact-item">
-            <div class="contact-icon">💼</div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">💼</div>
             <div>
               <h3>LinkedIn</h3>
               <a href="https://www.linkedin.com/in/example/"
@@ -298,17 +300,18 @@
             </div>
           </div>
 
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
             <div>
               <h3>Location</h3>
               <p>Abuja, Nigeria</p>
             </div>
           </div>
 
-          <h3 style="margin-top: 24px;">Find me online</h3>
+          <h3 class="social-heading">Follow My Journey</h3>
 
           <div class="social-links">
+
             <a href="https://instagram.com/example"
                target="_blank" rel="noopener noreferrer">
               📸 Instagram
@@ -323,53 +326,68 @@
                target="_blank" rel="noopener noreferrer">
               𝕏 Twitter
             </a>
+
           </div>
 
-          <p class="demo-note">
-            Demo links are used for design purposes.
-            Replace them with your actual profiles before publishing.
-          </p>
+          <div class="contact-notice">
+            These are demonstration links. Replace them
+            with your actual contact details and profiles
+            before sharing your portfolio professionally.
+          </div>
 
         </div>
 
-        <!-- Contact Form -->
-        <div class="contact-card">
+        <!-- CONTACT FORM -->
 
-          <p class="eyebrow">Send a message</p>
+        <div class="contact-panel">
+
+          <p class="eyebrow">SEND A MESSAGE</p>
           <h2>I'd Love to Hear From You</h2>
 
           <p>
-            Fill in the form below to preview the contact experience.
+            Complete the form below to try out the contact page.
           </p>
 
           <form class="contact-form" id="contactForm">
 
-            <input
-              type="text"
-              id="name"
-              placeholder="Your full name"
-              required
-            >
+            <div>
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+              >
+            </div>
 
-            <input
-              type="email"
-              id="email"
-              placeholder="Your email address"
-              required
-            >
+            <div>
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
 
-            <input
-              type="text"
-              id="subject"
-              placeholder="Message subject"
-              required
-            >
+            <div>
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                placeholder="What would you like to discuss?"
+                required
+              >
+            </div>
 
-            <textarea
-              id="message"
-              placeholder="Write your message here..."
-              required
-            ></textarea>
+            <div>
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+            </div>
 
             <button type="submit" class="btn btn-primary">
               Send Message ✉️
@@ -377,33 +395,47 @@
 
           </form>
 
-          <p class="demo-note">
-            This is a demonstration form. It currently displays a
-            confirmation message but does not send or store messages.
-          </p>
+          <div class="contact-success" id="successMessage">
+            Thank you! Your demonstration message has been submitted.
+          </div>
+
+          <div class="contact-notice">
+            This is a demonstration form. It displays a confirmation
+            message but does not send or store messages.
+          </div>
 
         </div>
 
       </div>
 
     </div>
+
   </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Fatima Shifa'u Abdulkadir. All rights reserved.</p>
+    <p>
+      &copy; 2026 Fatima Shifa'u Abdulkadir.
+      All rights reserved.
+    </p>
   </div>
 </footer>
 
+<!-- FORM INTERACTION -->
+
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    alert('Thank you for your message! This is a demonstration form.');
+    document.getElementById('successMessage').style.display = 'block';
 
-    this.reset();
+    contactForm.reset();
   });
 </script>
 
