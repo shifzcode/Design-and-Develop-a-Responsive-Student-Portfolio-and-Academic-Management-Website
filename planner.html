@@ -1,69 +1,423 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive academic planner to add, complete and delete tasks">
-  <title>Academic Planner | Student Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Academic Planner | Fatima Shifa'u Abdulkadir</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .planner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .planner-card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid #E9DFFF;
+    }
+
+    .planner-card h2 {
+      margin-bottom: 12px;
+    }
+
+    .planner-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .planner-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .planner-form input,
+    .planner-form select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #D8C8F5;
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .planner-form button {
+      cursor: pointer;
+      border: none;
+      font: inherit;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #EEE7F8;
+    }
+
+    .task-item label {
+      overflow-wrap: anywhere;
+    }
+
+    .task-item small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .task-item input[type="checkbox"] {
+      width: auto;
+      accent-color: var(--primary);
+    }
+
+    .task-item.completed label {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .delete-btn {
+      background: #FCE8F0;
+      color: #B42355;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .progress-track {
+      height: 10px;
+      background: #EEE7F8;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .section {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .empty-message {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .planner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">MyPortfolio</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-      <nav aria-label="Main navigation">
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Me</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="planner.html" class="active">Academic Planner</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
- 
-  <main>
-    <section class="page-banner">
-      <div class="container">
-        <h1>Academic Planner</h1>
-        <p>Plan assignments, revision and deadlines in one place</p>
-      </div>
-    </section>
- 
-    <section class="section">
-      <div class="container narrow">
-        <div class="card">
-          <form id="taskForm" novalidate>
-            <label for="taskInput">New task</label>
-            <div class="task-row">
-              <input type="text" id="taskInput" placeholder="e.g. Submit COS 106 term project" maxlength="120" autocomplete="off">
-              <button type="submit" class="btn btn-primary">Add Task</button>
-            </div>
-            <p class="error" id="taskError" role="alert"></p>
-          </form>
- 
-          <div class="task-stats">
-            <span>Total: <strong id="totalCount">0</strong></span>
-            <span>Completed: <strong id="doneCount">0</strong></span>
-            <span>Pending: <strong id="pendingCount">0</strong></span>
-          </div>
- 
-          <ul id="taskList" class="task-list"></ul>
-          <p id="emptyMsg" class="empty">No tasks yet. Add your first task above!</p>
- 
-          <button type="button" class="btn btn-outline" id="clearCompleted">Clear Completed</button>
-        </div>
-      </div>
-    </section>
-  </main>
- 
-  <footer class="site-footer">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Shifz Portfolio</a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" class="active">Academic Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-banner">
     <div class="container">
-      <p>&copy; <span id="year">2025</span> Your Full Name. All rights reserved.</p>
+      <p class="eyebrow">Stay organised. Stay focused.</p>
+      <h1>My Academic Planner 📚</h1>
+      <p>Plan your semester, organise assessments and keep track of your academic progress.</p>
     </div>
-  </footer>
-  <script src="js/script.js"></script>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="planner-grid">
+
+        <!-- Mid Assessments -->
+        <div class="planner-card">
+          <div class="planner-icon">📝</div>
+          <h2>Mid Assessments</h2>
+          <p>Keep track of your mid-semester assessments and deadlines.</p>
+          <div class="planner-form">
+            <input id="midTask" placeholder="Assessment or course name">
+            <input id="midDate" type="date">
+            <button class="btn btn-primary" onclick="addTask('mid')">+ Add Assessment</button>
+          </div>
+          <div id="midList"></div>
+        </div>
+
+        <!-- End Assessments -->
+        <div class="planner-card">
+          <div class="planner-icon">📚</div>
+          <h2>End Assessments</h2>
+          <p>Organise your end-of-semester assessments and submissions.</p>
+          <div class="planner-form">
+            <input id="endTask" placeholder="Assessment or course name">
+            <input id="endDate" type="date">
+            <button class="btn btn-primary" onclick="addTask('end')">+ Add Assessment</button>
+          </div>
+          <div id="endList"></div>
+        </div>
+
+        <!-- Lab Assessments -->
+        <div class="planner-card">
+          <div class="planner-icon">🧪</div>
+          <h2>Lab Assessments</h2>
+          <p>Monitor practical activities, lab reports and submissions.</p>
+          <div class="planner-form">
+            <input id="labTask" placeholder="Lab or course name">
+            <input id="labDate" type="date">
+            <button class="btn btn-primary" onclick="addTask('lab')">+ Add Lab Task</button>
+          </div>
+          <div id="labList"></div>
+        </div>
+
+        <!-- Examinations -->
+        <div class="planner-card">
+          <div class="planner-icon">🎓</div>
+          <h2>Examinations</h2>
+          <p>Record your examination dates and prepare ahead.</p>
+          <div class="planner-form">
+            <input id="examTask" placeholder="Examination or course name">
+            <input id="examDate" type="date">
+            <button class="btn btn-primary" onclick="addTask('exam')">+ Add Examination</button>
+          </div>
+          <div id="examList"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Study Timetable -->
+  <section class="section">
+    <div class="container">
+      <div class="planner-card">
+        <div class="planner-icon">🗓️</div>
+        <h2>My Study Timetable</h2>
+        <p>Organise your weekly study sessions.</p>
+
+        <div class="planner-form">
+          <input id="studySubject" placeholder="Course or subject">
+          <select id="studyDay">
+            <option value="">Select day</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+          <input id="studyTime" type="time">
+          <button class="btn btn-primary" onclick="addStudy()">+ Add Study Session</button>
+        </div>
+
+        <div id="studyList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Tracker -->
+  <section class="section">
+    <div class="container">
+      <div class="planner-card">
+        <div class="planner-icon">📊</div>
+        <h2>Academic Progress</h2>
+        <p>Track the tasks you have completed.</p>
+
+        <h3 id="progressText">0% Completed</h3>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p id="taskSummary" class="empty-message">No tasks added yet.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Fatima Shifa'u Abdulkadir. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  let tasks = {
+    mid: [],
+    end: [],
+    lab: [],
+    exam: []
+  };
+
+  let studySessions = [];
+
+  function addTask(category) {
+    const name = document.getElementById(category + 'Task').value.trim();
+    const date = document.getElementById(category + 'Date').value;
+
+    if (!name || !date) {
+      alert('Please enter the task name and date.');
+      return;
+    }
+
+    tasks[category].push({
+      name: name,
+      date: date,
+      completed: false
+    });
+
+    document.getElementById(category + 'Task').value = '';
+    document.getElementById(category + 'Date').value = '';
+
+    renderTasks();
+  }
+
+  function toggleTask(category, index, checked) {
+    tasks[category][index].completed = checked;
+    renderTasks();
+  }
+
+  function deleteTask(category, index) {
+    tasks[category].splice(index, 1);
+    renderTasks();
+  }
+
+  function renderTasks() {
+    const categories = ['mid', 'end', 'lab', 'exam'];
+
+    categories.forEach(category => {
+      const list = document.getElementById(category + 'List');
+
+      list.innerHTML = '';
+
+      if (tasks[category].length === 0) {
+        list.innerHTML = '<p class="empty-message">No items added yet.</p>';
+      }
+
+      tasks[category].forEach((task, index) => {
+        const item = document.createElement('div');
+        item.className = 'task-item' + (task.completed ? ' completed' : '');
+
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.addEventListener('change', () => {
+          toggleTask(category, index, checkbox.checked);
+        });
+
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(' ' + task.name));
+
+        const date = document.createElement('small');
+        date.textContent = '📅 ' + task.date;
+        label.appendChild(date);
+
+        const remove = document.createElement('button');
+        remove.className = 'delete-btn';
+        remove.textContent = 'Delete';
+        remove.addEventListener('click', () => deleteTask(category, index));
+
+        item.appendChild(label);
+        item.appendChild(remove);
+        list.appendChild(item);
+      });
+    });
+
+    updateProgress();
+  }
+
+  function addStudy() {
+    const subject = document.getElementById('studySubject').value.trim();
+    const day = document.getElementById('studyDay').value;
+    const time = document.getElementById('studyTime').value;
+
+    if (!subject || !day || !time) {
+      alert('Please complete all study session fields.');
+      return;
+    }
+
+    studySessions.push({ subject, day, time });
+    renderStudy();
+
+    document.getElementById('studySubject').value = '';
+    document.getElementById('studyDay').value = '';
+    document.getElementById('studyTime').value = '';
+  }
+
+  function renderStudy() {
+    const list = document.getElementById('studyList');
+    list.innerHTML = '';
+
+    if (studySessions.length === 0) {
+      list.innerHTML = '<p class="empty-message">No study sessions added yet.</p>';
+    }
+
+    studySessions.forEach((session, index) => {
+      const item = document.createElement('div');
+      item.className = 'task-item';
+
+      const details = document.createElement('span');
+      details.textContent = '📖 ' + session.day + ' — ' + session.subject + ' (' + session.time + ')';
+
+      const remove = document.createElement('button');
+      remove.className = 'delete-btn';
+      remove.textContent = 'Delete';
+      remove.addEventListener('click', () => {
+        studySessions.splice(index, 1);
+        renderStudy();
+      });
+
+      item.appendChild(details);
+      item.appendChild(remove);
+      list.appendChild(item);
+    });
+  }
+
+  function updateProgress() {
+    const allTasks = Object.values(tasks).flat();
+    const total = allTasks.length;
+    const completed = allTasks.filter(task => task.completed).length;
+
+    const percentage = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+    document.getElementById('progressText').textContent = percentage + '% Completed';
+    document.getElementById('progressFill').style.width = percentage + '%';
+    document.getElementById('taskSummary').textContent =
+      completed + ' of ' + total + ' assessment tasks completed.';
+  }
+
+  renderTasks();
+  renderStudy();
+</script>
+
 </body>
 </html>
