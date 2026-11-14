@@ -426,8 +426,22 @@
       font-weight: 800;
     }
 
-    .profile-caption span {
-      font-size: 0.95rem;
+    ..profile-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+
+.profile-caption strong {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.profile-caption span {
+  color: #000000;
+  font-size: 0.95rem;
+}
     }
 
   </style>
