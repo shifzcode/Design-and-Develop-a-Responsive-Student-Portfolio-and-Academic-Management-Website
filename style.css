@@ -421,3 +421,21 @@ input.invalid, textarea.invalid { border-color: var(--danger); }
     flex-direction: column;
   }
 }
+/* FSZ PORTFOLIO - TOP LEFT BANNER BRANDING */
+
+.site-header .header-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.site-header .logo {
+    display: block !important;
+    color: #FFFFFF !important;
+    font-size: 1.9rem !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    margin-right: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
