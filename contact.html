@@ -231,28 +231,37 @@
         padding: 24px;
       }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- SAME NAVIGATION BANNER AS THE OTHER PAGES -->
 
   <header class="site-header">
-    <nav class="navbar">
+    <div class="container header-inner">
 
-      <a href="index.html" class="logo">Fatima Shifa'u</a>
+      <a href="index.html" class="logo">MyPortfolio</a>
 
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="planner.html">Planner</a>
-        <a href="contact.html">Contact</a>
-      </div>
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        ☰
+      </button>
 
-    </nav>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
   </header>
 
   <!-- PAGE BANNER -->
@@ -425,7 +434,6 @@
   <!-- JAVASCRIPT FORM VALIDATION -->
 
   <script>
-
     const contactForm = document.getElementById("contactForm");
 
     const formMessage = document.getElementById("form-message");
@@ -449,17 +457,13 @@
       const phonePattern = /^\d+$/;
 
       formError.style.display = "none";
-
       formMessage.style.display = "none";
-
       formError.textContent = "";
 
       if (!name || !email || !phone || !message) {
 
         formError.textContent = "Please fill in all fields.";
-
         formError.style.display = "block";
-
         return;
 
       }
@@ -467,9 +471,7 @@
       if (!emailPattern.test(email)) {
 
         formError.textContent = "Please enter a valid email address.";
-
         formError.style.display = "block";
-
         return;
 
       }
@@ -477,9 +479,7 @@
       if (!phonePattern.test(phone)) {
 
         formError.textContent = "Phone number must contain digits only.";
-
         formError.style.display = "block";
-
         return;
 
       }
@@ -489,8 +489,11 @@
       contactForm.reset();
 
     });
-
   </script>
+
+  <!-- SHARED WEBSITE NAVIGATION SCRIPT -->
+
+  <script src="js/script.js"></script>
 
 </body>
 </html>
