@@ -33,13 +33,20 @@
       line-height: 1.8;
     }
 
-    /* TWO-COLUMN CONTACT LAYOUT */
+    /* SIDE-BY-SIDE CONTACT LAYOUT */
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) !important;
       gap: 30px;
       align-items: stretch;
+      width: 100%;
+    }
+
+    .contact-grid > .contact-card {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .contact-card {
@@ -49,7 +56,6 @@
       padding: 32px;
       box-shadow: 0 8px 25px rgba(76, 29, 149, 0.09);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      min-width: 0;
     }
 
     .contact-card:hover {
@@ -103,7 +109,7 @@
       color: #6D28D9;
     }
 
-    /* LINKEDIN VISIBILITY */
+    /* LINKEDIN LINK */
 
     .linkedin-link {
       display: inline-block !important;
@@ -214,7 +220,7 @@
 
     @media (max-width: 768px) {
       .contact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) !important;
       }
 
       .contact-section {
@@ -225,6 +231,7 @@
         padding: 24px;
       }
     }
+
   </style>
 </head>
 
@@ -270,11 +277,11 @@
       </p>
     </div>
 
-    <!-- TWO-COLUMN GRID -->
+    <!-- SIDE-BY-SIDE GRID -->
 
     <div class="contact-grid">
 
-      <!-- LEFT SIDE: CONTACT INFORMATION -->
+      <!-- LEFT: CONTACT INFORMATION -->
 
       <section class="contact-card">
 
@@ -286,8 +293,6 @@
           You can connect with me through the details and social platforms below.
         </p>
 
-        <!-- EMAIL -->
-
         <div class="contact-item">
 
           <h3>📧 Email</h3>
@@ -297,8 +302,6 @@
           </a>
 
         </div>
-
-        <!-- LINKEDIN -->
 
         <div class="contact-item"
              style="display:block !important; visibility:visible !important;">
@@ -310,15 +313,12 @@
               class="linkedin-link"
               href="https://www.linkedin.com/in/fatima-shifa-u-abdulkadir-11740b330/"
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               in &nbsp; View My LinkedIn Profile ↗
             </a>
           </p>
 
         </div>
-
-        <!-- LOCATION -->
 
         <div class="contact-item">
 
@@ -327,8 +327,6 @@
           <p>Abuja, Nigeria</p>
 
         </div>
-
-        <!-- SOCIAL MEDIA -->
 
         <h3>Find Me Online</h3>
 
@@ -356,7 +354,7 @@
 
       </section>
 
-      <!-- RIGHT SIDE: CONTACT FORM -->
+      <!-- RIGHT: SEND ME A MESSAGE -->
 
       <section class="contact-card">
 
