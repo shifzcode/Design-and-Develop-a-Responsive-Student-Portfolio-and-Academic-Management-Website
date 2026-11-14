@@ -209,6 +209,217 @@
       line-height: 1.5;
     }
 
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic portfolio of Fatima Shifa'u Abdulkadir, Computer Science student at MIVA Open University.">
+
+  <title>Fatima Shifa'u Abdulkadir | Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER AND NAVIGATION -->
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo">MyPortfolio</a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+
+          <p class="eyebrow">Welcome to my portfolio</p>
+
+          <h1>Welcome!</h1>
+
+          <p class="lead">
+            I am a Computer Science student passionate about technology
+            and building useful things for the web. Explore my profile,
+            skills, projects, and academic planner.
+          </p>
+
+          <div class="btn-group">
+
+            <a href="projects.html" class="btn btn-primary">
+              View My Projects
+            </a>
+
+            <a href="contact.html" class="btn btn-outline">
+              Contact Me
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- PROFILE PICTURE AND PERSONAL DETAILS -->
+
+        <figure class="hero-photo">
+
+          <img
+            src="profile.png"
+            alt="Profile picture of Fatima Shifa'u Abdulkadir">
+
+          <figcaption class="profile-caption">
+
+            <strong>Fatima Shifa'u Abdulkadir</strong>
+
+            <span>Computer Science Student</span>
+
+            <span>MIVA Open University</span>
+
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+    <!-- BIOGRAPHY AND QUICK FACTS -->
+
+    <section class="section">
+
+      <div class="container two-col">
+
+        <article class="card">
+
+          <h2>Brief Biography</h2>
+
+          <p>
+            I am a student at MIVA Open University studying Computer Science.
+            I enjoy solving problems, learning new technologies, and working
+            with others on projects. My goal is to become a skilled software
+            developer who creates solutions that make a difference in Africa
+            and beyond.
+          </p>
+
+          <p>
+            Outside the classroom, I enjoy reading, exploring new tools
+            for web development, and discovering creative ways to use technology.
+          </p>
+
+        </article>
+
+        <aside class="card">
+
+          <h2>Quick Facts</h2>
+
+          <ul class="check-list">
+
+            <li>Institution: MIVA Open University</li>
+
+            <li>Level: 100 Level, Computer Science</li>
+
+            <li>Location: Nigeria</li>
+
+            <li>Focus: Web Development</li>
+
+            <li>Currently learning: HTML, CSS and JavaScript</li>
+
+          </ul>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+    <!-- WELCOME AUDIO SECTION -->
+
+    <section class="section alt">
+
+      <div class="container">
+
+        <h2 class="center">Meet Me</h2>
+
+        <div class="media-box">
+
+          <p>Press play to hear a short welcome message:</p>
+
+          <audio controls>
+
+            <source src="media/welcome.wav" type="audio/wav">
+
+            Your browser does not support the audio element.
+
+          </audio>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+        &copy; <span id="year">2026</span>
+        Fatima Shifa'u Abdulkadir. All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/script.js"></script>
+
+  <!-- PROFILE CAPTION STYLING -->
+
+  <style>
+
+    .profile-caption {
+      text-align: center;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .profile-caption strong {
       color: var(--primary);
       font-size: 1.15rem;
