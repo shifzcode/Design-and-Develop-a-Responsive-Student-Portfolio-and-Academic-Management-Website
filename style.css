@@ -350,3 +350,74 @@ input.invalid, textarea.invalid { border-color: var(--danger); }
   .task-row { flex-direction: column; }
   table { font-size: 0.9rem; display: block; overflow-x: auto; }
 }
+/* RESTORE FSZ PORTFOLIO BRANDING */
+
+.site-header {
+  display: block !important;
+  width: 100%;
+  background: #6D28D9 !important;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.site-header .header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 85px;
+}
+
+.site-header a.logo {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #FFFFFF !important;
+  font-size: 1.8rem !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 10000;
+}
+
+.site-header nav {
+  display: block !important;
+}
+
+.site-header .nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header .nav-menu a {
+  color: #FFFFFF !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.site-header .nav-menu a:hover,
+.site-header .nav-menu a.active {
+  color: #E9D5FF !important;
+}
+
+@media (max-width: 700px) {
+  .site-header .logo {
+    font-size: 1.5rem !important;
+  }
+
+  .site-header .nav-menu {
+    display: none;
+  }
+
+  .site-header .nav-menu.open {
+    display: flex;
+    flex-direction: column;
+  }
+}
